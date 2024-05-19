@@ -48,7 +48,8 @@ public class LevelManager : Singleton<LevelManager>
    {    
         player.score = 0;
         level = 1;
-        LoadLevel(level);
+        SetDataLevel(level);
+        LoadLevel(PlayerPrefs.GetInt("level"));
         OnInit();
    }
 
@@ -56,7 +57,8 @@ public class LevelManager : Singleton<LevelManager>
    {
         // up level
         level ++;
-        LoadLevel(level);
+        SetDataLevel(level);
+        LoadLevel(PlayerPrefs.GetInt("level"));
         OnInit();
    }
 
@@ -68,4 +70,8 @@ public class LevelManager : Singleton<LevelManager>
    {
      return level;
    }
+    private void SetDataLevel(int level)
+    {
+        PlayerPrefs.SetInt("level", level);
+    }
 }

@@ -37,7 +37,7 @@ public class UnBrick : MonoBehaviour
             brickRender.transform.position += Vector3.up*0.3f;  //Xu ly render gach duoi nen dat
             brickRender.material = UnBrickmaterial;
 
-            player.score--; //giam diem
+            player.score--;;//giam diem
             // up score 
 
             player.ani.Play(CONST.ANI_UNBRICK, 0, 0.5f); //Xu ly anin

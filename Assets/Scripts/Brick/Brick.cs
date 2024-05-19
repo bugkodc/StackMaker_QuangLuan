@@ -34,7 +34,6 @@ public class Brick : MonoBehaviour
         pos.y = topBrick.transform.position.y + 0.3f; //Position moi cho player
         PlayerPos.position = pos; 
         player.score++;
-        // up score
         player.ani.Play(CONST.ANI_ADDBIRCK, 0, 0.5f);
     }
 }

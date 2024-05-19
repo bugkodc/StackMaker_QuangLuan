@@ -57,7 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnBrickmaterial: {fileID: 2100000, guid: 90dff8eb6f4f3544482f2b20bf720643, type: 2}
   RenBrick: {fileID: 7568161369540894452}
-  collider: {fileID: 8369679227996231481}
+  unbrickCollider: {fileID: 8369679227996231481}
 --- !u!65 &8369679227996231481
 BoxCollider:
   m_ObjectHideFlags: 0
