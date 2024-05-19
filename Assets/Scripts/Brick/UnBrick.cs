@@ -6,7 +6,7 @@ public class UnBrick : MonoBehaviour
 {
     [SerializeField] Material UnBrickmaterial;
     [SerializeField] GameObject RenBrick;
-    [SerializeField] private Collider unbrickCollider;
+    private Collider unbrickCollider;
 
     private Player player;
     private GameObject ListBrick;
@@ -18,6 +18,7 @@ public class UnBrick : MonoBehaviour
        PlayerPos = GameObject.FindGameObjectWithTag(CONST.TAG_POSE_PLAYER).transform;
        ListBrick = GameObject.Find(CONST.GO_LISTBRICK);
        player = FindObjectOfType<Player>();
+       unbrickCollider = GetComponent<Collider>();
     }
 
     //Phat hien va cham voi Player va bo gach di

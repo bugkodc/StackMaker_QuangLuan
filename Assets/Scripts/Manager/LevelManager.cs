@@ -11,6 +11,7 @@ public class LevelManager : Singleton<LevelManager>
     private void Start() 
     {   
         level = 1;
+        SetDataLevel(level);
         GameManager.Instance.ChangeState(EGameState.GamePlay);
         LoadLevel(level);
         OnInit();
@@ -23,7 +24,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         Destroy(currentLevel.gameObject);
     }
-    currentLevel = Instantiate(levels[level-1]);
+    currentLevel = Instantiate(levels[level - 1]);
     OnInit();
    }
    
