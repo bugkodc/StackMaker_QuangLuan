@@ -8,8 +8,8 @@ public class LevelManager : Singleton<LevelManager>
     public Player player;
     private Level currentLevel;
     private int level;
-    private void Start() 
-    {   
+    private void Start()
+    {
         level = 1;
         SetDataLevel(level);
         GameManager.Instance.ChangeState(EGameState.GamePlay);
@@ -17,60 +17,60 @@ public class LevelManager : Singleton<LevelManager>
         OnInit();
         UIManager.Instance.OpenMainMenuUI();
     }
-    
-   public void LoadLevel(int level)
-   {
-    if(currentLevel!= null)
+
+    public void LoadLevel(int level)
     {
-        Destroy(currentLevel.gameObject);
+        if (currentLevel != null)
+        {
+            Destroy(currentLevel.gameObject);
+        }
+        currentLevel = Instantiate(levels[level - 1]);
+        OnInit();
     }
-    currentLevel = Instantiate(levels[level - 1]);
-    OnInit();
-   }
-   
-   public void OnInit()
-   {
+
+    public void OnInit()
+    {
         player.OnInit();
         player.transform.position = Vector3.zero;
-        player.transform.position = currentLevel.startPoint.position + Vector3.up*3f;
-   }
-   public void OnStart()
-   {
+        player.transform.position = currentLevel.startPoint.position + Vector3.up * 3f;
+    }
+    public void OnStart()
+    {
         player.isPlay = true;
-   }
-   public void OnFinish()
-   {
+    }
+    public void OnFinish()
+    {
         // luu 
         UIManager.Instance.OpenFinishUI();
         GameManager.Instance.ChangeState(EGameState.Finish);
-   }
+    }
 
-   public void LoadRePlayLevel() //Choi lai tu man 1
-   {    
+    public void LoadRePlayLevel() //Choi lai tu man 1
+    {
         player.score = 0;
         level = 1;
         SetDataLevel(level);
         LoadLevel(PlayerPrefs.GetInt("level"));
         OnInit();
-   }
+    }
 
-   public void LoadNextLevel()
-   {
+    public void LoadNextLevel()
+    {
         // up level
-        level ++;
+        level++;
         SetDataLevel(level);
         LoadLevel(PlayerPrefs.GetInt("level"));
         OnInit();
-   }
+    }
 
-   public float GetScore()
-   {
-     return player.score;
-   }
-   public float GetLevel()
-   {
-     return level;
-   }
+    public float GetScore()
+    {
+        return player.score;
+    }
+    public float GetLevel()
+    {
+        return level;
+    }
     private void SetDataLevel(int level)
     {
         PlayerPrefs.SetInt("level", level);

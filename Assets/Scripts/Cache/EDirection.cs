@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EDirection 
+public enum EDirection
 {
     Backward = 0,
     Forward = 1,

@@ -11,7 +11,8 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI level;
     public TextMeshProUGUI scoreWIN;
 
-    private void Update() {
+    private void Update()
+    {
         score.text = CONST.TEXT_SCORE + LevelManager.Instance.GetScore().ToString();
         level.text = CONST.TEXT_LEVEL + LevelManager.Instance.GetLevel().ToString();
     }
@@ -30,7 +31,7 @@ public class UIManager : Singleton<UIManager>
     {
         mainmenuUI.SetActive(false);
         LevelManager.Instance.OnStart();
-        
+
     }
     public void ButtonRePlay()
     {

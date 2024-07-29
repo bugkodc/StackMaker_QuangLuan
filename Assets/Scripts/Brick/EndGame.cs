@@ -9,9 +9,9 @@ public class EndGame : MonoBehaviour
     public GameObject win;
     public ParticleSystem[] particleSystems;
     private Player player;
-    private void Awake() 
+    private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = LevelManager.Instance.player;
     }
     void Update()
     {
@@ -28,10 +28,10 @@ public class EndGame : MonoBehaviour
             StopEndAnimation();
         }
     }
-    private void OnTriggerEnter(Collider other)  
+    private void OnTriggerEnter(Collider other)
     {
         if (player.score < scoreWin) return;
-        if(other.CompareTag(CONST.TAG_PLAYER))
+        if (other.CompareTag(CONST.TAG_PLAYER))
         {
             // win game call toi
             /* isPlay= true;                      
@@ -43,17 +43,17 @@ public class EndGame : MonoBehaviour
     protected virtual void EndAnimation()
     {
         win.SetActive(true);
-        foreach( ParticleSystem particle in particleSystems)
+        foreach (ParticleSystem particle in particleSystems)
         {
             particle.gameObject.SetActive(true);
             particle.Play();
-           
+
         }
     }
     protected virtual void StopEndAnimation()
     {
         win.SetActive(false);
-        foreach( ParticleSystem particle in particleSystems)
+        foreach (ParticleSystem particle in particleSystems)
         {
             particle.Pause();
             particle.gameObject.SetActive(false);

@@ -10,15 +10,15 @@ public class MouseInput : Singleton<MouseInput>
     public EDirection eDirection;
     public bool isMove = false;
     public void Swipe()
-    {   
-        
-        if(Input.GetMouseButtonDown(0))
-        {   
-            
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
             firstMouse = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
-        if(Input.GetMouseButtonUp(0))
-        {   
+        if (Input.GetMouseButtonUp(0))
+        {
 
             secondMouse = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 distance = secondMouse - firstMouse;
@@ -28,27 +28,27 @@ public class MouseInput : Singleton<MouseInput>
                 eDirection = EDirection.Forward;
             }
 
-            
+
             if (distance.y < 0 && distance.x > -0.5f && distance.x < 0.5f)
             {
-                
-                    eDirection = EDirection.Backward;
-                
+
+                eDirection = EDirection.Backward;
+
             }
             if (distance.x < 0 && distance.y > -0.5f && distance.y < 0.5f)
             {
                 eDirection = EDirection.Left;
             }
-           
+
             if (distance.x > 0 && distance.y > -0.5f && distance.y < 0.5f)
             {
-                
-               eDirection = EDirection.Right;
+
+                eDirection = EDirection.Right;
             }
         }
     }
     public EDirection GetEDirection()
-    { 
+    {
         return eDirection;
     }
 }
